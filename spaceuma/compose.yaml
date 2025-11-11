@@ -1,0 +1,42 @@
+services:
+  rovtio:
+    image: giafranchini/rovtio:latest
+    tty: true
+    networks:
+      ros1:
+        ipv4_address: 172.20.0.2
+    volumes:
+      - /home/giacomo/phd/rosbag:/root/rosbag
+  
+  ros1_bridge:
+    image: giafranchini/ros-humble-noetic-bridge:latest
+    tty: true
+    environment:
+      - ROS_MASTER_URI=http://172.20.0.2:11311
+    networks:
+      ros1:
+        ipv4_address: 172.20.0.3
+      ros2:
+        ipv4_address: 172.19.0.2
+    volumes:
+      - /home/giacomo/phd/rosbag:/root/rosbag
+
+  # thermal_driven_localization:
+  #   image: giafranchini/spaceuma:latest
+  #   tty: true
+  #   networks:
+  #     - ros2
+  #   volumes:
+  #     - /home/giacomo/phd/rosbag:/root/rosbag
+
+networks:
+  ros1:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+  ros2:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/24
