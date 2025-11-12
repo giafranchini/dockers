@@ -1,0 +1,21 @@
+services:
+  thermal_driven_localization:
+    image: giafranchini/thermal_driven_localization:latest
+    tty: true
+    networks:
+      ros2:
+        ipv4_address: 172.19.0.3
+    volumes:
+      - /home/giacomo/phd/rosbag:/root/rosbag
+
+networks:
+  ros1:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+  ros2:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/24

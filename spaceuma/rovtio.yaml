@@ -22,14 +22,6 @@ services:
     volumes:
       - /home/giacomo/phd/rosbag:/root/rosbag
 
-  # thermal_driven_localization:
-  #   image: giafranchini/spaceuma:latest
-  #   tty: true
-  #   networks:
-  #     - ros2
-  #   volumes:
-  #     - /home/giacomo/phd/rosbag:/root/rosbag
-
 networks:
   ros1:
     driver: bridge
