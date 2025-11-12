@@ -1,29 +1,29 @@
 repositories:
   ros2_native_adapters:
     type: git
-    url: https://github.com/roncapat/ros2_native_adapters.git
+    url: git@github.com:roncapat/ros2_native_adapters.git
     version: humble
   ROS2_ThermalCamera_OPTRISPI640:
     type: git
-    url: https://github.com/spaceuma/ROS2_ThermalCamera_OPTRISPI640.git
-    version: feature-pub-camera-info
+    url: git@github.com:spaceuma/ROS2_ThermalCamera_OPTRISPI640.git
+    version: main
   cloud_registration:
     type: git
-    url: https://github.com/spaceuma/cloud_registration.git
+    url: git@github.com:spaceuma/cloud_registration.git
     version: humble
   lava_tube_exploration_launchers:
     type: git
-    url: https://github.com/spaceuma/lava_tube_exploration_launchers.git
+    url: git@github.com:spaceuma/lava_tube_exploration_launchers.git
     version: main
   thermal_depth_to_cloud:
     type: git
-    url: https://github.com/spaceuma/thermal_depth_to_cloud.git
+    url: git@github.com:spaceuma/thermal_depth_to_cloud.git
     version: humble
   thermal_image_utils:
     type: git
-    url: https://github.com/spaceuma/thermal_image_utils.git
+    url: git@github.com:spaceuma/thermal_image_utils.git
     version: humble
   velodyne:
     type: git
-    url: https://github.com/ros-drivers/velodyne.git
-    version: humble-devel
+    url: git@github.com:ros-drivers/velodyne.git
+    version: ros2
