@@ -13,6 +13,7 @@ services:
     tty: true
     environment:
       - ROS_MASTER_URI=http://172.20.0.2:11311
+    command: ["ros2", "run", "ros1_bridge", "dynamic_bridge", "--bridge-all-topics"]
     networks:
       ros1:
         ipv4_address: 172.20.0.3
