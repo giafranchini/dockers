@@ -29,4 +29,10 @@ RUN /bin/bash -c 'source /opt/ros/noetic/setup.bash; catkin build rovtio --cmake
 RUN echo 'source /opt/ros/noetic/setup.bash' >> ~/.bashrc && \
   echo 'source /root/rovtio_ws/devel/setup.bash' >> ~/.bashrc
 
+# Copy and install entrypoint script to source ROS environments for any command
+COPY ros_entrypoint.sh /usr/local/bin/ros_entrypoint.sh
+RUN chmod +x /usr/local/bin/ros_entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/ros_entrypoint.sh"]
+
 CMD ["/bin/bash"]

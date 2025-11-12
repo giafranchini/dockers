@@ -64,4 +64,14 @@ RUN /bin/bash -c \
   source /root/ros2_humble_ws/install/local_setup.bash; \
   MAKEFLAGS=-j2 colcon build --symlink-install'
 
+RUN echo 'source /opt/ros/noetic/setup.bash' >> ~/.bashrc && \
+  echo 'source /root/ros2_humble_ws/install/local_setup.bash' >> ~/.bashrc && \
+  echo 'source /root/ros1_bridge_ws/install/local_setup.bash' >> ~/.bashrc
+
+# Copy and install entrypoint script to source ROS environments for any command
+COPY ros_entrypoint.sh /usr/local/bin/ros_entrypoint.sh
+RUN chmod +x /usr/local/bin/ros_entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/ros_entrypoint.sh"]
+
 CMD ["/bin/bash"]
